@@ -6,11 +6,15 @@ const app = express();
 const PORT = process.env.PORT || 3000;
 
 const IMAGES_DIR = path.join(__dirname, 'public', 'images');
-const VOTES_FILE = path.join(__dirname, 'votes.json');
+const VOTES_FILE = process.env.VOTES_PATH || path.join(__dirname, 'votes.json');
 const CATEGORIES = ['estandar', 'doble', 'king'];
 const IMAGE_EXTENSIONS = ['.jpg', '.jpeg', '.png', '.gif', '.webp', '.bmp', '.svg'];
 
-// Ensure votes.json exists
+// Ensure votes.json and its directory exist
+const votesDir = path.dirname(VOTES_FILE);
+if (!fs.existsSync(votesDir)) {
+  fs.mkdirSync(votesDir, { recursive: true });
+}
 if (!fs.existsSync(VOTES_FILE)) {
   fs.writeFileSync(VOTES_FILE, JSON.stringify({}, null, 2));
 }
