@@ -15,6 +15,10 @@ const votesDir = path.dirname(VOTES_FILE);
 if (!fs.existsSync(votesDir)) {
   fs.mkdirSync(votesDir, { recursive: true });
 }
+// If VOTES_FILE path exists as a directory (Docker volume quirk), remove it
+if (fs.existsSync(VOTES_FILE) && fs.statSync(VOTES_FILE).isDirectory()) {
+  fs.rmSync(VOTES_FILE, { recursive: true });
+}
 if (!fs.existsSync(VOTES_FILE)) {
   fs.writeFileSync(VOTES_FILE, JSON.stringify({}, null, 2));
 }
