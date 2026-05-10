@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Votador de Imágenes - Hotel</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <!-- ===== PANTALLA DE SELECCIÓN DE USUARIO ===== -->
+  <div id="screen-user" class="screen active">
+    <div class="container">
+      <div class="logo">🏨</div>
+      <h1>Votador de Imágenes</h1>
+      <p class="subtitle">¿Quién sos?</p>
+      <div class="user-buttons">
+        <button class="btn btn-user" data-user="Antonio">Antonio</button>
+        <button class="btn btn-user" data-user="Ennio">Ennio</button>
+        <button class="btn btn-user" data-user="Aldo">Aldo</button>
+      </div>
+      <button class="btn btn-link" id="btn-results">Ver Resultados</button>
+    </div>
+  </div>
+
+  <!-- ===== PANTALLA DE CATEGORÍAS ===== -->
+  <div id="screen-categories" class="screen">
+    <div class="container">
+      <div class="top-bar">
+        <button class="btn btn-back" id="btn-back-user">← Volver</button>
+        <span class="user-badge" id="user-badge"></span>
+      </div>
+      <h2>Elegí la categoría</h2>
+      <div class="category-cards" id="category-cards"></div>
+      <button class="btn btn-link" id="btn-results2">Ver Resultados</button>
+    </div>
+  </div>
+
+  <!-- ===== PANTALLA DE VOTACIÓN ===== -->
+  <div id="screen-vote" class="screen">
+    <div class="container vote-container">
+      <div class="top-bar">
+        <button class="btn btn-back" id="btn-back-categories">← Categorías</button>
+        <span class="category-badge" id="category-badge"></span>
+      </div>
+
+      <div class="progress-bar-container">
+        <div class="progress-bar" id="progress-bar"></div>
+        <span class="progress-text" id="progress-text">0 / 0</span>
+      </div>
+
+      <div class="image-viewer" id="image-viewer">
+        <img id="vote-image" src="" alt="Imagen para votar">
+        <div class="image-nav-overlay">
+          <button class="nav-btn nav-prev" id="btn-prev" title="Anterior">‹</button>
+          <button class="nav-btn nav-next" id="btn-next" title="Siguiente">›</button>
+        </div>
+      </div>
+
+      <div class="vote-status" id="vote-status"></div>
+
+      <div class="vote-buttons">
+        <button class="btn btn-keep" id="btn-keep">✓ Mantener</button>
+        <button class="btn btn-discard" id="btn-discard">✗ Descartar</button>
+        <button class="btn btn-undo" id="btn-undo">↩ Sin voto</button>
+      </div>
+
+      <div class="image-counter" id="image-counter"></div>
+    </div>
+  </div>
+
+  <!-- ===== PANTALLA DE RESULTADOS ===== -->
+  <div id="screen-results" class="screen">
+    <div class="container">
+      <div class="top-bar">
+        <button class="btn btn-back" id="btn-back-home">← Volver</button>
+        <h2 class="results-title">Resultados</h2>
+      </div>
+
+      <div class="results-tabs" id="results-tabs"></div>
+      <div class="results-filter">
+        <label>Mostrar:</label>
+        <select id="results-filter">
+          <option value="all">Todas</option>
+          <option value="winners">Ganadoras (mantener)</option>
+          <option value="discarded">Descartadas</option>
+          <option value="pending">Pendientes</option>
+        </select>
+      </div>
+      <div class="results-grid" id="results-grid"></div>
+    </div>
+  </div>
+
+  <script src="/app.js"></script>
+</body>
+</html>

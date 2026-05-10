@@ -1,0 +1,13 @@
+{
+  "name": "image-voter-webapp",
+  "version": "1.0.0",
+  "description": "Votador de imágenes para hotel - vota cuáles fotos mantener en la web",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}
